@@ -27,9 +27,9 @@ public class CustomerModel {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = false)
     private String name;
 
-    @Column(nullable = false, length = 11, unique = true)
-    private int cpf;
+    @Column(nullable = false, unique = true)
+    private String cpf;
 }

@@ -12,8 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 @CrossOrigin(origins = "*")
@@ -28,8 +28,8 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public ResponseEntity<CustomerModel> createCustomer(@RequestParam @Valid CustomerDTO body){
-        if(customerService.existsByCPF(body.getCpf())){
+    public ResponseEntity<CustomerModel> createCustomer(@RequestBody @Valid CustomerDTO body){
+        if(customerService.existsBycpf(body.getCpf())){
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         }
 

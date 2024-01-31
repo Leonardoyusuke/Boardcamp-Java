@@ -20,7 +20,7 @@ public class CustomerService {
         return customerRepository.save(customer);
     }
 
-    public boolean existsByCPF(int cpf){
-        return customerRepository.existsByCPF(cpf);
+    public boolean existsBycpf(String cpf){
+        return customerRepository.existsBycpf(cpf);
     }
 }

@@ -1,7 +1,9 @@
 package com.boardcamp.api.dtos;
 
+import org.hibernate.validator.constraints.Length;
+
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -10,8 +12,8 @@ public class CustomerDTO {
     @NotBlank
     private String name;
 
-    @NotBlank
-    @Size(min = 11, max = 11)
-    private int cpf;
+    @NotNull
+    @Length(min = 11, max = 11)
+    private String cpf;
 
 }
