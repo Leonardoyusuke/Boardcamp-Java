@@ -27,7 +27,7 @@ public class CustomerModel {
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false, unique = true)

@@ -3,6 +3,7 @@ package com.boardcamp.api.services;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.CustomerDTO;
+import com.boardcamp.api.exceptions.CostumerCPFConflictExpections;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.repositories.CustomerRepository;
 
@@ -16,11 +17,11 @@ public class CustomerService {
     }
 
     public CustomerModel save(CustomerDTO dto){
+        if(customerRepository.existsBycpf(dto.getCpf())){
+            throw new CostumerCPFConflictExpections("CPF already exists");
+        }
+
         CustomerModel customer = new CustomerModel(dto);
         return customerRepository.save(customer);
-    }
-
-    public boolean existsBycpf(String cpf){
-        return customerRepository.existsBycpf(cpf);
     }
 }

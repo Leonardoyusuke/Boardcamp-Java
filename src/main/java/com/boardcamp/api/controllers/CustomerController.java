@@ -29,10 +29,6 @@ public class CustomerController {
 
     @PostMapping()
     public ResponseEntity<CustomerModel> createCustomer(@RequestBody @Valid CustomerDTO body){
-        if(customerService.existsBycpf(body.getCpf())){
-            return ResponseEntity.status(HttpStatus.CONFLICT).build();
-        }
-
         CustomerModel customer = customerService.save(body);
         return ResponseEntity.status(HttpStatus.CREATED).body(customer);
         
