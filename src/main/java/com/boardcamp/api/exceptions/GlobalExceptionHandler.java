@@ -26,6 +26,10 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handlerGameNotFound(GameNotFoundExpections exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
+    @ExceptionHandler({GameOutOfStockExpections.class})
+    public ResponseEntity<Object> handlerGameOutOfStock(GameOutOfStockExpections exception){
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+    }
 
 
 }

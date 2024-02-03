@@ -3,6 +3,7 @@ package com.boardcamp.api.services;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.RentalsDTO;
+import com.boardcamp.api.exceptions.GameOutOfStockExpections;
 import com.boardcamp.api.exceptions.UserNotFoundExpections;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.models.GamesModel;
@@ -28,10 +29,8 @@ public class RentalsService {
         GamesModel game = gamesRepository.findById(dto.getGameId()).orElseThrow(() -> new UserNotFoundExpections("Game not found"));
         CustomerModel customer = customersRepository.findById(dto.getCustomerId()).orElseThrow(() -> new UserNotFoundExpections("Customer not found"));
 
-        
-
         if(rentalsRepository.countByGameId(dto.getGameId()) >= game.getStockTotal()){
-            throw new UserNotFoundExpections("Game out of stock");
+            throw new GameOutOfStockExpections("Game out of stock");
         }
       
 
