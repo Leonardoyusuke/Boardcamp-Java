@@ -1,17 +1,14 @@
 package com.boardcamp.api.models;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import com.boardcamp.api.dtos.RentalsDTO;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -43,10 +40,10 @@ public class RentalsModel {
     private LocalDate rentDate;
 
     @Column(nullable = false)
-    private Long daysRented;
+    private int daysRented;
 
     @Column(nullable = true)
-    private String returnDate;
+    private LocalDate returnDate;
 
     @Column(nullable = false)
     private int originalPrice;

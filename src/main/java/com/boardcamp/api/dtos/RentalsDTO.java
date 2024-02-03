@@ -15,7 +15,7 @@ public class RentalsDTO {
     
     @NotNull
     @Min(value = 1)
-    private Long daysRented;
+    private int daysRented;
     
     
 }

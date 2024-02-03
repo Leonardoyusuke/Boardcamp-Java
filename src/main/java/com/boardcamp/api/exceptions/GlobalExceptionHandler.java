@@ -30,6 +30,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handlerGameOutOfStock(GameOutOfStockExpections exception){
         return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
     }
+    @ExceptionHandler({RentalAlreadyFinished.class})
+    public ResponseEntity<Object> handleRentalAlreadyFinished(RentalAlreadyFinished exception){
+        return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(exception.getMessage());
+    }
+    @ExceptionHandler({RentalNotFoundExpections.class})
+    public ResponseEntity<Object> handleRentalNotFound(RentalNotFoundExpections exception){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
 
 
 }

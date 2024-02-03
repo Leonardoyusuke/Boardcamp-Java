@@ -17,8 +17,8 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @CrossOrigin(origins = "*")
@@ -41,6 +41,10 @@ public class RentalsController {
     public ResponseEntity<List<RentalsModel>> findAll() {
         return ResponseEntity.status(HttpStatus.OK).body(rentalsService.findAll());
     }
-    
+    @PutMapping("/{id}/return")
+    public ResponseEntity <RentalsModel> finishRental (@PathVariable Long id) {
+        RentalsModel rental = rentalsService.finish(id);
+        return ResponseEntity.status(HttpStatus.OK).body(rental);
+    }
 
 }
