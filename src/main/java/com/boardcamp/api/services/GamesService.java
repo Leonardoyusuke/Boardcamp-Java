@@ -2,14 +2,14 @@ package com.boardcamp.api.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.GamesDTO;
 import com.boardcamp.api.exceptions.GameAlreadyExistExpections;
 import com.boardcamp.api.models.GamesModel;
 import com.boardcamp.api.repositories.GamesRepository;
 
-@Repository
+@Service
 public class GamesService {
 
     final GamesRepository gamesRepository ;
