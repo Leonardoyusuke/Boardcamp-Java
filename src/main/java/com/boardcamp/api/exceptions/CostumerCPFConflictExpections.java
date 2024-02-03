@@ -4,5 +4,4 @@ public class CostumerCPFConflictExpections extends RuntimeException{
     public CostumerCPFConflictExpections(String message){
         super(message);
     }
-    
 }

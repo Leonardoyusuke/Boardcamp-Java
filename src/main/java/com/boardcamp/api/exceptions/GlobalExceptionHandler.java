@@ -17,4 +17,11 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handlerUserNotFound(UserNotFoundExpexctions exception){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
     }
+
+    @ExceptionHandler({GameAlreadyExistExpections.class})
+    public ResponseEntity<Object> handlerGameAlreadyExist(GameAlreadyExistExpections exception){
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
+    }
+
+
 }

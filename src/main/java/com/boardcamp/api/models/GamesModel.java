@@ -1,5 +1,8 @@
 package com.boardcamp.api.models;
 
+import com.boardcamp.api.dtos.CustomerDTO;
+import com.boardcamp.api.dtos.GamesDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,6 +21,14 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "games")
 public class GamesModel {
+
+    public GamesModel(GamesDTO dto) {
+        this.name = dto.getName();
+        this.image = dto.getImage();
+        this.stockTotal = dto.getStockTotal();
+        this.pricePerDay = dto.getPricePerDay();
+    }
+
     @Id
     @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
     private Long id;
@@ -35,8 +46,5 @@ public class GamesModel {
     @Column(nullable = false)
     @Min(value = 1)
     private int pricePerDay;
-
-    // @ManyToOne
-    // @JoinColumn(name = "customerId")
-    // private CustomerModel customer;
+    
 }
