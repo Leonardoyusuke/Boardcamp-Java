@@ -12,4 +12,9 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handlerCPFInUse(CostumerCPFConflictExpections exception){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
+
+    @ExceptionHandler({UserNotFoundExpexctions.class})
+    public ResponseEntity<Object> handlerUserNotFound(UserNotFoundExpexctions exception){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
 }
