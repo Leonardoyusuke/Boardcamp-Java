@@ -1,5 +1,7 @@
 package com.boardcamp.api.controllers;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,6 +16,9 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @CrossOrigin(origins = "*")
@@ -31,7 +36,11 @@ public class RentalsController {
     public ResponseEntity <RentalsModel> createRental(@RequestBody @Valid RentalsDTO dto) {
         RentalsModel rental = rentalsService.save(dto);
         return ResponseEntity.status(HttpStatus.CREATED).body(rental);        
-
     }
+    @GetMapping()
+    public ResponseEntity<List<RentalsModel>> findAll() {
+        return ResponseEntity.status(HttpStatus.OK).body(rentalsService.findAll());
+    }
+    
 
 }
