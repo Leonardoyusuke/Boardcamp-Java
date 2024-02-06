@@ -9,4 +9,4 @@ FROM eclipse-temurin:17-jdk-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar api.jar
 EXPOSE 8080
-CMD ["java", "-jar", "--debug", "api.jar"]
+CMD ["java", "-jar", "api.jar"]
