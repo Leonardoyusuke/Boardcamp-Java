@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.CustomerDTO;
-import com.boardcamp.api.exceptions.CostumerCPFConflictExpections;
+import com.boardcamp.api.exceptions.CustomerCPFConflictExpections;
 import com.boardcamp.api.exceptions.UserNotFoundExpections;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.repositories.CustomerRepository;
@@ -21,7 +21,7 @@ public class CustomerService {
 
     public CustomerModel save(CustomerDTO dto){
         if(customerRepository.existsBycpf(dto.getCpf())){
-            throw new CostumerCPFConflictExpections("CPF already exists");
+            throw new CustomerCPFConflictExpections("CPF already exists");
         }
 
         CustomerModel customer = new CustomerModel(dto);

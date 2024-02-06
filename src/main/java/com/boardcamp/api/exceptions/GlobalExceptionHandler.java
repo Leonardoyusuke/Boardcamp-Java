@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     
-    @ExceptionHandler({CostumerCPFConflictExpections.class})
-    public ResponseEntity<Object> handlerCPFInUse(CostumerCPFConflictExpections exception){
+    @ExceptionHandler({CustomerCPFConflictExpections.class})
+    public ResponseEntity<Object> handlerCPFInUse(CustomerCPFConflictExpections exception){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(exception.getMessage());
     }
 
