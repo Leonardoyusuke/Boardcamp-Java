@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.boardcamp.api.dtos.RentalsDTO;
+import com.boardcamp.api.exceptions.GameNotFoundExpections;
 import com.boardcamp.api.exceptions.GameOutOfStockExpections;
 import com.boardcamp.api.exceptions.RentalAlreadyFinished;
 import com.boardcamp.api.exceptions.RentalNotFoundExpections;
@@ -34,7 +35,7 @@ public class RentalsService {
 
     public RentalsModel save(RentalsDTO dto) {
         GamesModel game = gamesRepository.findById(dto.getGameId())
-                .orElseThrow(() -> new UserNotFoundExpections("Game not found"));
+                .orElseThrow(() -> new GameNotFoundExpections("Game not found"));
         CustomerModel customer = customersRepository.findById(dto.getCustomerId())
                 .orElseThrow(() -> new UserNotFoundExpections("Customer not found"));
 
