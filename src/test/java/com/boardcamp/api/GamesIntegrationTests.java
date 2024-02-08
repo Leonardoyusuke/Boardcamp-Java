@@ -15,12 +15,11 @@ import org.springframework.test.context.ActiveProfiles;
 
 import com.boardcamp.api.dtos.GamesDTO;
 import com.boardcamp.api.models.GamesModel;
-import com.boardcamp.api.repositories.CustomerRepository;
 import com.boardcamp.api.repositories.GamesRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class GamesIntegrationTests {
+class GamesIntegrationTests {
     
     @Autowired
     private TestRestTemplate restTemplate;
@@ -28,13 +27,10 @@ public class GamesIntegrationTests {
     @Autowired
     private GamesRepository gamesRepository;
 
-    @Autowired
-    private CustomerRepository customerRepository;
 
     @AfterEach
     public void cleanUp() {
         gamesRepository.deleteAll();
-        customerRepository.deleteAll();
     }
 
     @Test

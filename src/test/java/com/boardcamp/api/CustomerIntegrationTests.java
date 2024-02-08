@@ -19,7 +19,7 @@ import com.boardcamp.api.repositories.CustomerRepository;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class CustomerIntegrationTests {
+class CustomerIntegrationTests {
 
     @Autowired
     private TestRestTemplate restTemplate;
