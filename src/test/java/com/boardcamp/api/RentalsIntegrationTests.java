@@ -2,10 +2,6 @@ package com.boardcamp.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.Optional;
-
-import org.aspectj.lang.annotation.After;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,8 +14,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 
-import com.boardcamp.api.dtos.CustomerDTO;
-import com.boardcamp.api.dtos.GamesDTO;
 import com.boardcamp.api.dtos.RentalsDTO;
 import com.boardcamp.api.models.CustomerModel;
 import com.boardcamp.api.models.GamesModel;

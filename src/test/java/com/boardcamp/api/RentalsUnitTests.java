@@ -7,7 +7,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
@@ -16,8 +15,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.boardcamp.api.dtos.CustomerDTO;
-import com.boardcamp.api.dtos.GamesDTO;
 import com.boardcamp.api.dtos.RentalsDTO;
 import com.boardcamp.api.exceptions.GameNotFoundExpections;
 import com.boardcamp.api.exceptions.GameOutOfStockExpections;
